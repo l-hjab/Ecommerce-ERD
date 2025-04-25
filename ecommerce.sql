@@ -1,17 +1,24 @@
--- create database ecommerce;
 -- use ecommerce;
+-- create database ERD;
+-- use ERD;
 
+--table category
+CREATE TABLE category(
+category_id INT PRIMARY KEY AUTO_INCREMENT,
+categoryName VARCHAR (100),
+description VARCHAR(100)
+);
 
 -- table products
 CREATE TABLE product(
 product_id INT PRIMARY KEY AUTO_INCREMENT,
 product_name VARCHAR (100) ,
-base_price DECIMAL (50,2) CHECK(price>0),
+base_price DECIMAL (50,2) CHECK(base_price>0),
 quantity INT ,
 description VARCHAR (100),
 stockQuantity INT,
-categoryID INT,
-FOREIGN KEY(categoryID) REFERENCES category(CategoryID));
+category_id INT,
+FOREIGN KEY(category_id) REFERENCES category(category_id));
 
 
 -- table productImage
@@ -38,11 +45,11 @@ hex_code varchar(7) not null
 
 
 -- table category
-CREATE TABLE category(
-category_id INT PRIMARY KEY AUTO_INCREMENT,
-categoryName VARCHAR (100),
-description VARCHAR(100)
-);
+-- CREATE TABLE category(
+-- category_id INT PRIMARY KEY AUTO_INCREMENT,
+-- categoryName VARCHAR (100),
+-- description VARCHAR(100)
+-- );
 
 CREATE TABLE size_category (
 size_category_id INT PRIMARY KEY AUTO_INCREMENT,
